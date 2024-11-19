@@ -1,7 +1,6 @@
 // screens/market_screen.dart
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:intl/intl.dart';
 
 import '../models/market_model.dart';
 import '../providers/market_provider.dart';
@@ -139,7 +138,20 @@ class MarketScreen extends StatelessWidget {
   }
 
   String _formatPrice(double price) {
-    return NumberFormat('#,##0.00').format(price);
+    final parts = price.toString().split('.');
+    final integerPart = parts[0]; // 整数部分
+    final decimalPart = parts.length > 1 ? parts[1] : '';
+
+    final buffer = StringBuffer();
+    for (int i = 0; i < integerPart.length; i++) {
+      if (i > 0 && (integerPart.length - i) % 3 == 0) {
+        buffer.write(',');
+      }
+      buffer.write(integerPart[i]);
+    }
+    return decimalPart.isNotEmpty
+        ? '${buffer.toString()}.$decimalPart'
+        : buffer.toString();
   }
 
   String _formatVolume(double volume) {
