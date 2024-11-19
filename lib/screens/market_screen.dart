@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
 
-import '../model/market_model.dart';
-import '../providers/market_provider.dart'; // 添加这行
+import '../models/market_model.dart';
+import '../providers/market_provider.dart';
 
 class MarketScreen extends StatelessWidget {
+  const MarketScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -3,7 +3,7 @@ import 'package:marketapp/screens/market_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'data/market_data.dart';
-import 'model/market_model.dart';
+import 'models/market_model.dart';
 import 'providers/market_provider.dart';
 
 void main() {
@@ -18,7 +18,7 @@ void main() {
   runApp(
     ChangeNotifierProvider(
       create: (_) => MarketProvider(initialData),
-      child: MaterialApp(
+      child: const MaterialApp(
         home: DefaultTabController(
           length: 3,
           child: MarketScreen(),
@@ -26,13 +26,4 @@ void main() {
       ),
     ),
   );
-
-  // runApp(
-  //   ChangeNotifierProvider(
-  //     create: (_) => MarketProvider(initialData),
-  //     child: MaterialApp(
-  //       home: MarketScreen(),
-  //     ),
-  //   ),
-  // );
 }

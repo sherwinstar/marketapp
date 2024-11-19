@@ -1,6 +1,6 @@
 // providers/market_provider.dart
 import 'package:flutter/material.dart';
-import '../model/market_model.dart';
+import '../models/market_model.dart';
 
 class MarketProvider with ChangeNotifier {
   final List<MarketModel> _allData;
@@ -58,7 +58,6 @@ class MarketProvider with ChangeNotifier {
 
   void sort(SortColumn column) {
     if (_sortColumn == column) {
-      // 切换排序顺序：升序 -> 降序 -> 默认
       switch (_sortOrder) {
         case SortOrder.default_:
           _sortOrder = SortOrder.ascending;
@@ -72,7 +71,6 @@ class MarketProvider with ChangeNotifier {
           break;
       }
     } else {
-      // 新的列：开始升序排序
       _sortColumn = column;
       _sortOrder = SortOrder.ascending;
     }
@@ -103,7 +101,6 @@ class MarketProvider with ChangeNotifier {
   }
 
   void _applyDefaultSortRule() {
-    // 默认排序规则
     _filteredData.sort((a, b) {
       // 1. 优先级基础货币排序
       int aPriorityIndex = priorityBases.indexOf(a.base);

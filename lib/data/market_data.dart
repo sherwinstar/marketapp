@@ -1,3 +1,4 @@
+// data/market_data.dart
 final List<Map<String, dynamic>> marketRawData = [
   {
     "base": 'BTC',
