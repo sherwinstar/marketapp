@@ -12,6 +12,7 @@ class MarketScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 20,
         bottom: TabBar(
           controller: DefaultTabController.of(context),
           tabs: const [

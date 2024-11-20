@@ -29,6 +29,7 @@ class MarketProvider with ChangeNotifier {
   }
 
   void setTab(int index) {
+    FocusManager.instance.primaryFocus?.unfocus();
     _currentTab = index;
     searchController.clear();
     _searchQuery = '';

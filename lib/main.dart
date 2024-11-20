@@ -11,8 +11,8 @@ void main() {
     base: item['base'],
     quote: item['quote'],
     type: item['type'] == 'SPOT' ? MarketType.SPOT : MarketType.FUTURES,
-    lastPrice: item['lastPrice'],
-    volume: item['volume'],
+    lastPrice: item['lastPrice'].toDouble(),
+    volume: item['volume'].toDouble(),
   )).toList();
 
   runApp(
